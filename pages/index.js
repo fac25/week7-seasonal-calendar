@@ -22,7 +22,7 @@ export default function Home({ currentMonthData }) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
+    
             <main>
                 <div></div>
 
