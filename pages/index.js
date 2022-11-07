@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import { loadVeg } from '../lib/loadVeg.js'
 
 const currentMonth = new Date().getMonth()
@@ -6,12 +7,10 @@ const currentMonth = new Date().getMonth()
 export async function getStaticProps() {
     const allMonths = await loadVeg()
     const currentMonthData = allMonths[currentMonth]
-    console.log(currentMonthData)
     return { props: { currentMonthData } }
 }
 
 export default function Home({ currentMonthData }) {
-    // console.log(allMonths)
     return (
         <div className="bg-pink-200">
             <Head>
@@ -22,13 +21,35 @@ export default function Home({ currentMonthData }) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-    
-            <main>
-                <div></div>
 
-                <h1 className="text-2xl text-blue-600">
-                    {currentMonthData.name}
-                </h1>
+            <main>
+                <div className="container mx-auto">
+                    <h1 className="text-2xl text-blue-600">
+                        {' '}
+                        Seasonal Calendar{' '}
+                    </h1>
+                    <p>{currentMonthData.name}</p>
+                    <div className="grid gap-4 grid-cols-3 lg:grid-cols-4 ">
+                        {currentMonthData.food.slice(0, 12).map((veg) => (
+                            <div
+                                key={veg.name}
+                                className="flex flex-col justify-center items-center"
+                            >
+                                <div className="h-24 w-24 md:w-40 md:h-40 lg:w-48 lg:h-48 2xl:w-64 2xl:h-64">
+                                    <Image
+                                        src={veg.imageUrlSmall}
+                                        width={300}
+                                        height={300}
+                                        alt={veg.name}
+                                        className="object-cover h-full w-full rounded-full"
+                                    />
+                                </div>
+
+                                <h2>{veg.name}</h2>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </main>
 
             <footer></footer>

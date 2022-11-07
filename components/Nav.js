@@ -20,10 +20,10 @@ export default function Nav() {
                                     className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
                                     onClick={() => setNavbar(!navbar)}
                                 >
-                                    <div class="space-y-2">
-                                        <div class="w-8 h-0.5 bg-gray-600"></div>
-                                        <div class="w-8 h-0.5 bg-gray-600"></div>
-                                        <div class="w-8 h-0.5 bg-gray-600"></div>
+                                    <div className="space-y-2">
+                                        <div className="w-8 h-0.5 bg-gray-600"></div>
+                                        <div className="w-8 h-0.5 bg-gray-600"></div>
+                                        <div className="w-8 h-0.5 bg-gray-600"></div>
                                     </div>
                                 </button>
                             </div>
