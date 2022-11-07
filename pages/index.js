@@ -11,7 +11,7 @@ export default function Home() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
+    
             <main>
                 <h1 className="text-2xl text-blue-600">Fruits</h1>
             </main>
