@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { loadVeg } from '../lib/loadVeg.js'
 import GlobalMonth from '../lib/GlobalMonth'
+
 // const currentMonth = new Date().getMonth()
 
 export async function getStaticProps() {
@@ -14,7 +15,7 @@ export async function getStaticProps() {
 
 export default function Home({ allMonths }) {
     const currentMonth = useContext(GlobalMonth)
-    console.log(currentMonth)
+    //console.log(currentMonth)
     const currentMonthData = allMonths[currentMonth]
 
     return (
