@@ -1,10 +1,8 @@
-// create seasons component .. summer , winter etc
-// filter seasonal data by month - asign jun, july, aug to summer - etc...
-// get month based on app(global) component - It has the number represting month
-// use getstaticprops to get data of current month from api
 import React, { useContext, useState } from 'react'
 import GlobalMonth from '../lib/GlobalMonth'
 import { loadVeg } from '../lib/loadVeg.js'
+import Image from 'next/image'
+import VegName from '../components/VegName'
 
 export async function getStaticProps() {
     const allMonths = await loadVeg()
@@ -51,7 +49,26 @@ export default function Calendar({ allMonths }) {
 
             <div>
                 <div className={`${checkActive(1, 'hidden')}`}>
-                    <div>{allMonths[2].name}</div>
+                    <VegName props={allMonths} />
+                    {/* {allMonths[2].name}
+                    {allMonths[2].food.map((veg) => (
+                        <div
+                            key={veg.name}
+                            className="flex flex-col justify-center items-center"
+                        >
+                            <div className="h-24 w-24 md:w-40 md:h-40 lg:w-48 lg:h-48 2xl:w-64 2xl:h-64">
+                                <Image
+                                    src={veg.imageUrlSmall}
+                                    width={300}
+                                    height={300}
+                                    alt={veg.name}
+                                    className="object-cover h-full w-full rounded-full"
+                                />
+                            </div>
+
+                            <h2>{veg.name}</h2>
+                        </div>
+                    ))} */}
                     <div>{allMonths[3].name}</div>
                     <div>{allMonths[4].name}</div>
                 </div>

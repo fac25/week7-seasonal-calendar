@@ -10,6 +10,7 @@ const nextConfig = {
             'cdn.pixabay.com',
             'cdn.shopify.com',
             's3.amazonaws.com',
+            'i.guim.co.uk',
         ],
     },
 }
