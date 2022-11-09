@@ -1,11 +1,14 @@
 import loadVeg from '../lib/loadVeg'
 import Image from 'next/image'
 
-export default function VegName(props) {
+//we want to render all spring vegs on the page
+// index will be 5/6/7
+// how do we manipulate that
+//duplications
+export default function VegName({ vegs, index }) {
     return (
-        <div>
-            {props[2].name}
-            {/* {allMonths[2].food.map((veg) => (
+        <div className="grid gap-4 grid-cols-3 lg:grid-cols-4">
+            {vegs[index].food.map((veg) => (
                 <div
                     key={veg.name}
                     className="flex flex-col justify-center items-center"
@@ -22,7 +25,7 @@ export default function VegName(props) {
 
                     <h2>{veg.name}</h2>
                 </div>
-            ))} */}
+            ))}
         </div>
     )
 }
