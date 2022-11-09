@@ -1,11 +1,9 @@
-import loadVeg from '../lib/loadVeg'
 import Image from 'next/image'
 
-export default function VegName(props) {
+export default function VegName({ allMonths, index }) {
     return (
-        <div>
-            {props[2].name}
-            {/* {allMonths[2].food.map((veg) => (
+        <div className="grid gap-4 grid-cols-3 lg:grid-cols-4">
+            {allMonths[index].food.map((veg) => (
                 <div
                     key={veg.name}
                     className="flex flex-col justify-center items-center"
@@ -22,7 +20,7 @@ export default function VegName(props) {
 
                     <h2>{veg.name}</h2>
                 </div>
-            ))} */}
+            ))}
         </div>
     )
 }

@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 import GlobalMonth from '../lib/GlobalMonth'
 import { loadVeg } from '../lib/loadVeg.js'
-import Image from 'next/image'
 import VegName from '../components/VegName'
+
 
 export async function getStaticProps() {
     const allMonths = await loadVeg()
@@ -49,46 +49,37 @@ export default function Calendar({ allMonths }) {
 
             <div>
                 <div className={`${checkActive(1, 'hidden')}`}>
-                    <VegName props={allMonths} />
-                    {/* {allMonths[2].name}
-                    {allMonths[2].food.map((veg) => (
-                        <div
-                            key={veg.name}
-                            className="flex flex-col justify-center items-center"
-                        >
-                            <div className="h-24 w-24 md:w-40 md:h-40 lg:w-48 lg:h-48 2xl:w-64 2xl:h-64">
-                                <Image
-                                    src={veg.imageUrlSmall}
-                                    width={300}
-                                    height={300}
-                                    alt={veg.name}
-                                    className="object-cover h-full w-full rounded-full"
-                                />
-                            </div>
-
-                            <h2>{veg.name}</h2>
-                        </div>
-                    ))} */}
                     <div>{allMonths[3].name}</div>
+                    <VegName allMonths={allMonths} index={3} />
                     <div>{allMonths[4].name}</div>
+                    <VegName allMonths={allMonths} index={4} />
                 </div>
 
                 <div className={`${checkActive(2, 'hidden')}`}>
                     <div>{allMonths[5].name}</div>
+                    <VegName allMonths={allMonths} index={5} />
                     <div>{allMonths[6].name}</div>
+                    <VegName allMonths={allMonths} index={6} />
                     <div>{allMonths[7].name}</div>
+                    <VegName allMonths={allMonths} index={7} />
                 </div>
 
                 <div className={`${checkActive(3, 'hidden')}`}>
                     <div>{allMonths[8].name}</div>
+                    <VegName allMonths={allMonths} index={8} />
                     <div>{allMonths[9].name}</div>
+                    <VegName allMonths={allMonths} index={9} />
                     <div>{allMonths[10].name}</div>
+                    <VegName allMonths={allMonths} index={10} />
                 </div>
 
                 <div className={`${checkActive(4, 'hidden')}`}>
                     <div>{allMonths[11].name}</div>
+                    <VegName allMonths={allMonths} index={11} />
                     <div>{allMonths[0].name}</div>
+                    <VegName allMonths={allMonths} index={0} />
                     <div>{allMonths[1].name}</div>
+                    <VegName allMonths={allMonths} index={1} />
                 </div>
             </div>
         </>
