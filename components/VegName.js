@@ -1,10 +1,5 @@
-import loadVeg from '../lib/loadVeg'
 import Image from 'next/image'
 
-//we want to render all spring vegs on the page
-// index will be 5/6/7
-// how do we manipulate that
-//duplications
 export default function VegName({ vegs, index }) {
     return (
         <div className="grid gap-4 grid-cols-3 lg:grid-cols-4">

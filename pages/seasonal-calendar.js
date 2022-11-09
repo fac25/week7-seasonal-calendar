@@ -1,10 +1,8 @@
 import React, { useContext, useState } from 'react'
 import GlobalMonth from '../lib/GlobalMonth'
 import { loadVeg } from '../lib/loadVeg.js'
-import Image from 'next/image'
 import VegName from '../components/VegName'
 
-//we need to figure out the type of the props
 
 export async function getStaticProps() {
     const allMonths = await loadVeg()
