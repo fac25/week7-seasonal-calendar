@@ -32,7 +32,7 @@ export default function Home({ allMonths }) {
                         Seasonal Calendar{' '}
                     </h1>
                     <p>{currentMonthData.name}</p>
-                    <VegName vegs={allMonths} index={currentMonth} />
+                    <VegName allMonths={allMonths} index={currentMonth} />
                 </div>
             </main>
 

@@ -1,9 +1,9 @@
 import Image from 'next/image'
 
-export default function VegName({ vegs, index }) {
+export default function VegName({ allMonths, index }) {
     return (
         <div className="grid gap-4 grid-cols-3 lg:grid-cols-4">
-            {vegs[index].food.map((veg) => (
+            {allMonths[index].food.map((veg) => (
                 <div
                     key={veg.name}
                     className="flex flex-col justify-center items-center"

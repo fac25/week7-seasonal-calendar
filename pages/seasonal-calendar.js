@@ -50,36 +50,36 @@ export default function Calendar({ allMonths }) {
             <div>
                 <div className={`${checkActive(1, 'hidden')}`}>
                     <div>{allMonths[3].name}</div>
-                    <VegName vegs={allMonths} index={3} />
+                    <VegName allMonths={allMonths} index={3} />
                     <div>{allMonths[4].name}</div>
-                    <VegName vegs={allMonths} index={4} />
+                    <VegName allMonths={allMonths} index={4} />
                 </div>
 
                 <div className={`${checkActive(2, 'hidden')}`}>
                     <div>{allMonths[5].name}</div>
-                    <VegName vegs={allMonths} index={5} />
+                    <VegName allMonths={allMonths} index={5} />
                     <div>{allMonths[6].name}</div>
-                    <VegName vegs={allMonths} index={6} />
+                    <VegName allMonths={allMonths} index={6} />
                     <div>{allMonths[7].name}</div>
-                    <VegName vegs={allMonths} index={7} />
+                    <VegName allMonths={allMonths} index={7} />
                 </div>
 
                 <div className={`${checkActive(3, 'hidden')}`}>
                     <div>{allMonths[8].name}</div>
-                    <VegName vegs={allMonths} index={8} />
+                    <VegName allMonths={allMonths} index={8} />
                     <div>{allMonths[9].name}</div>
-                    <VegName vegs={allMonths} index={9} />
+                    <VegName allMonths={allMonths} index={9} />
                     <div>{allMonths[10].name}</div>
-                    <VegName vegs={allMonths} index={10} />
+                    <VegName allMonths={allMonths} index={10} />
                 </div>
 
                 <div className={`${checkActive(4, 'hidden')}`}>
                     <div>{allMonths[11].name}</div>
-                    <VegName vegs={allMonths} index={11} />
+                    <VegName allMonths={allMonths} index={11} />
                     <div>{allMonths[0].name}</div>
-                    <VegName vegs={allMonths} index={0} />
+                    <VegName allMonths={allMonths} index={0} />
                     <div>{allMonths[1].name}</div>
-                    <VegName vegs={allMonths} index={1} />
+                    <VegName allMonths={allMonths} index={1} />
                 </div>
             </div>
         </>
