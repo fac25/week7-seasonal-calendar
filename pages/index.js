@@ -2,7 +2,9 @@ import { useContext } from 'react'
 import Head from 'next/head'
 import { loadVeg } from '../lib/loadVeg.js'
 import GlobalMonth from '../lib/GlobalMonth'
+
 import VegName from '../components/VegName'
+
 
 export async function getStaticProps() {
     const allMonths = await loadVeg()
