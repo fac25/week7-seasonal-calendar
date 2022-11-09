@@ -3,6 +3,8 @@ For your final projects, both in-house and Tech for Better, you’ll write a det
 
 The following sections are required. Your report is supposed to demonstrate a certain set of knowledge, skills and behaviours. These are listed alongside the relevant questions as quotes.
 
+<img width="1134" alt="Screenshot 2022-11-09 at 12 19 25" src="https://user-images.githubusercontent.com/2411572/200898407-fb51acc3-7fca-4d85-a941-fd5600a4c58c.png">
+
 Introduction 
 What are you building?
 Why are you building it?
