@@ -9,9 +9,10 @@ export async function getStaticProps() {
     const currentMonthData = allveg[currentMonth]
     // console.log(currentMonthData)
     const allVegArray = currentMonthData.food.map((veg) => veg.name)
-    console.log(allVegArray)
+    // console.log(allVegArray) ['apple', 'lettuce', ...]
 
     const allrecipes = await loadRecipes(allVegArray)
+    console.log('L.15')
     console.log(allrecipes)
 
     return {
