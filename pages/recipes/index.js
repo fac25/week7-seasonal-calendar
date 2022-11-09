@@ -6,21 +6,20 @@ const currentMonth = new Date().getMonth()
 
 export async function getStaticProps() {
     const allveg = await loadVeg()
-    const currentMonthData = allveg[currentMonth]
+    const currentMonthData = allveg[9]
     // console.log(currentMonthData)
     const allVegArray = currentMonthData.food.map((veg) => veg.name)
     // console.log(allVegArray) ['apple', 'lettuce', ...]
 
     const allrecipes = await loadRecipes(allVegArray)
-    console.log('L.15')
-    console.log(allrecipes)
 
     return {
         props: { allrecipes },
     }
 }
 
-export default function Home({}) {
+export default function Home({ allrecipes }) {
+    console.log(allrecipes)
     return (
         <div className="bg-pink-200">
             <Head>
@@ -34,7 +33,15 @@ export default function Home({}) {
 
             <main>
                 <h1>Recipes Page</h1>
-                {/* <div>{allrecipes[0][0].id}</div> */}
+                <div>
+                    {/* {allrecipes.map((recipe) => (
+                        <>
+                            <div>{recipe.label}</div>
+                            <div>{recipe.ingredientLines}</div>
+                            <div>{recipe.url}</div>
+                        </>
+                    ))} */}
+                </div>
             </main>
 
             <footer></footer>

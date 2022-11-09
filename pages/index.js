@@ -15,7 +15,6 @@ export async function getStaticProps() {
 
 export default function Home({ allMonths }) {
     const currentMonth = useContext(GlobalMonth)
-    //console.log(currentMonth)
     const currentMonthData = allMonths[currentMonth]
 
     return (
