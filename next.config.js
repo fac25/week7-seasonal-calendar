@@ -10,6 +10,7 @@ const nextConfig = {
             'cdn.pixabay.com',
             'cdn.shopify.com',
             's3.amazonaws.com',
+            'edamam-product-images.s3.amazonaws.com',
             'i.guim.co.uk',
             'i5.walmartimages.ca',
             'encrypted-tbn0.gstatic.com',
