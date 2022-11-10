@@ -4,7 +4,6 @@ import { loadVeg } from '../lib/loadVeg.js'
 import GlobalMonth from '../lib/GlobalMonth'
 import Recipe from '../components/Recipe.js'
 import VegName from '../components/VegName'
-
 import { loadRecipes } from '../lib/loadRecipes.js'
 
 export async function getStaticProps() {

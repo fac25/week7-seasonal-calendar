@@ -18,6 +18,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allrecipes }) {
+
     return (
         <div className="bg-pink-200">
             <Head>
