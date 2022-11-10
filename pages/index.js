@@ -2,19 +2,21 @@ import { useContext } from 'react'
 import Head from 'next/head'
 import { loadVeg } from '../lib/loadVeg.js'
 import GlobalMonth from '../lib/GlobalMonth'
-
+import Recipe from '../components/Recipe.js'
 import VegName from '../components/VegName'
+import { loadRecipes } from '../lib/loadRecipes.js'
 
 export async function getStaticProps() {
     const allMonths = await loadVeg()
-
-    return { props: { allMonths } }
+    const allRecipes = await loadRecipes(['apple', 'carrot'])
+    return { props: { allMonths, allRecipes } }
 }
 
-export default function Home({ allMonths }) {
+export default function Home({ allMonths, allRecipes }) {
     const currentMonth = useContext(GlobalMonth)
     const currentMonthData = allMonths[currentMonth]
-
+    // allMonths is an array of objects
+    console.log(allRecipes)
     return (
         <div className="bg-pink-200">
             <Head>
@@ -33,6 +35,7 @@ export default function Home({ allMonths }) {
                         Seasonal Calendar{' '}
                     </h1>
                     <p>{currentMonthData.name}</p>
+                    {/* <Recipe props={allRecipes} /> */}
                     <VegName allMonths={allMonths} index={currentMonth} />
                 </div>
             </main>
