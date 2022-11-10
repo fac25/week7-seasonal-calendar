@@ -70,77 +70,104 @@ fetched: [
     }
   ]
 
-```
-Introduction 
-What are you building?
-Why are you building it?
-Project scope 
-What are you not building?
-How did you decide what features were important?
-Project plan 
-How are you going to structure your sprints?
-What order are you going to build in?
-How did user research inform your plan?
-Requirement analysis 
-How will you ensure your project is accessible to as many users as possible?
-Are there any legal or regulatory requirements you should consider?
-Project learnings 
-Did your team work effectively?
-What would you do differently next time?
-Research and findings 
-What did you find out from user testing?
-Project outcomes 
-Were your assumptions right or wrong?
-Recommendations and conclusions 
-What features would you prioritise to build next?
-Was the project a success?
-Software Development Lifecycle stages 
-Planning 
-What roles did your team take on?
-Explain the roles and responsibilities of all people working within the software development lifecycle, and how they relate to the project (K2)
+# seasonal calendar
 
-Did these roles help your team work effectively?
-Outline how teams work effectively to produce software and how to contribute appropriately (K6) Compare and contrast the requirements of a software development team, and how they would ensure that each member (including themselves) were able to make a contribution (K6)
+## Introduction
 
-Analysis 
-What might be the intended and unintended consequences of building this product?
-Design 
-How did you plan a user experience?
-What technical decisions did you make?
-Server-render vs client-render vs both
-Relational or non-relational or no DB
-Self-hosted or platform-as-a-service
-Frontend first vs DB first
-Did you create a technical specification?
-Review methods of software design with reference to functional/technical specifications and apply a justified approach to software development (K11, S11, S12)
+#### What are you building?
 
-Implementation/Build 
-How did you ensure your code was good?
-Create logical and maintainable code to deliver project outcomes, explaining their choice of approach. (S1)
+We are buliding a website for users to view vegetables and fruits that are in season in the UK. The user will have access to a seasonal calendar to know the 'in season' fruits and vegetables for the current month. 
 
-What interesting technical problems did you have to solve?
-Outline and apply the rationale and use of algorithms, logic and data structures. (K9, S16)
+The user will be able to access recipes based on those fruites and vegetables and learn the nutritional benefits  
 
-How did you debug issues that arose?
-Apply structured techniques to problem solving to identify and resolve issues and debug basic flaws in code (S7)
+#### Why are you building it?
 
-Test 
-How did you verify your project worked correctly?
-Identify and create test scenarios which satisfy the project specification (S6)
+Seasonal produce generally requires fewer chemicals and the food miles are often significantly lower as product is grown more locally. This keeps the environmental impact, as well as the cost lower.
 
-Did writing automated tests catch any bugs?
-Analyse unit testing results and review the outcomes, correcting errors. (S4)
+The other websites showing a seasonal calendar don't have displays the data in an engaging way.
 
-Deploy 
-Where/how did you deploy your application?
-Review and justify their contribution to building, managing and deploying code into the relevant environment in accordance with the project specification (S10)
+## Project scope 
 
-What problems did you encounter during deployment?
-Maintain 
-Is it easy for someone make changes to the codebase?
-Could a new person quickly be onboarded to contribute?
-Establishes a logical thinking approach to areas of work which require valid reasoning and/or justified decision making (B2)
-Describes how they have maintained a productive, professional and secure working environment throughout the project activity (B3)
+
+#### What are you not building?
+
+- We are not building a global seasonal calendar where users can pick their location.
+- We are not building a React native app.
+- We are not building a clone of an existing website.
+
+
+#### How did you decide what features were important?
+
+
+- We run a discovery session to understand what problem our users are facing.
+- We conducted a user research session interviewing eight people in which we presented the possible features and were open to suggestions too.
+- We then analysed the feedback from the user research and the discovery session to define who our users were, what was their problem and how this app would solve those issues.
+
+
+## Project plan 
+
+#### How are you going to structure your sprints?
+
+We are working in 1-week sprints and plan on holding daily stand-ups. We will assign issues and pair programme. 
+
+#### What order are you going to build in?
+
+We're focusing on building our MVP first, which means a website that lists seasonal vegetables, with a calndar overview, some suggested recipes and overview pages of the individual vegetables. We're planning on building tests as we go and if we accomplish all this focus on stretch goals, which yet have to be discussed. 
+
+#### How did user research inform your plan?
+
+We conducted user research before building this project twice. First we did a qualitative analysis of the users' needs and what features they would like to see on the website, and what they find helpful. We considered these answers in the following design process, to come up with an idea that is achieveable, but also meets our users needs. Following this we designed a prototype on [figma](https://www.figma.com/proto/4gFoWhl8lI1aAHv89E9CIt/Seasonal-Calendar?node-id=23%3A4&starting-point-node-id=23%3A4) and used it to conduct further user research, on whether our idea came across coherently and if the website is easy to understand.
+
+## Requirement analysis 
+
+#### How will you ensure your project is accessible to as many users as possible?
+We will design our website and write code follow with A11y projects to make sure our website is accessible to as many users as possible
+
+#### Are there any legal or regulatory requirements you should consider?
+
+Not for our MVP. If we complete our stretch goal(s), we have to consider GDPR. 
+
+## Project learnings 
+
+#### Did your team work effectively?
+
+#### What would you do differently next time?
+
+## Research and findings 
+
+#### What did you find out from user testing?
+
+## Project outcomes 
+
+#### Were your assumptions right or wrong?
+
+
+## Recommendations and conclusions 
+
+#### What features would you prioritise to build next?
+
+#### Was the project a success?
+
+### Software Development Lifecycle stages 
+
+- Discovery
+- User research
+- Wireframing
+- Design
+- Usabily Testing
+- Code planning
+- Development
+
+### Planning 
+
+### What roles did your team take on?
+UX/UI - Paz
+Scrum - Joe
+QA - Abby
+DevOps - Lisa
+
+### Explain the roles and responsibilities of all people working within the software development lifecycle, and how they relate to the project (K2)
+
 
 ## Getting Started
 
