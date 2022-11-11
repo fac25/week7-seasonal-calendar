@@ -1,5 +1,20 @@
 # Seasonal Calendar
 
+## Core
+- [x] As a user, I would like to see the veg/fruites that are currently in season.
+- [x] As a user, I would like to navigate around the website.
+- [x] As a user, I want a calendar overview of vegetables and fruit available in different seasons.
+- [x] As a user, I would like to see recipes relevant to the current month.
+- [ ] As a user, I would like to see more information about specific fruits and veg.
+- [x] As a user, I would like to see specific information about a recipe.
+- [ ] As a user, I would like to see an overview of all recipe. 
+
+## Stretch 
+
+- [ ] As a user, I would like to able to create an account. 
+- [ ] As an account holder, I would like to save my favourite recipes 
+
+
 ## Setup 
 1. Clone your copy and cd into it
 2. Run `npm install` to install all the dependencies
