@@ -4,13 +4,13 @@ import { loadVeg } from '../lib/loadVeg.js'
 import VegName from '../components/VegName'
 
 import { currentMonth, currentSeason } from '../lib/currentData'
+//currentSeason is a function that take currentMonth as argument and return data = { season: 'autumn', seasonIndex: 3 }
 
 export async function getStaticProps() {
     const allMonths = await loadVeg()
     return { props: { allMonths } }
 }
 
-//currentSeasonData={ season: 'autumn', seasonIndex: 3 }
 
 export default function Calendar({ allMonths }) {
     const currentSeasonData = currentSeason(currentMonth)
