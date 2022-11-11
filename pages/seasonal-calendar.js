@@ -3,85 +3,67 @@ import GlobalMonth from '../lib/GlobalMonth'
 import { loadVeg } from '../lib/loadVeg.js'
 import VegName from '../components/VegName'
 
+import { currentMonth, currentSeason } from '../lib/currentData'
 
 export async function getStaticProps() {
     const allMonths = await loadVeg()
     return { props: { allMonths } }
 }
 
+//currentSeasonData={ season: 'autumn', seasonIndex: 3 }
+
 export default function Calendar({ allMonths }) {
-    const [activeIndex, setActiveIndex] = useState(1)
+    const currentSeasonData = currentSeason(currentMonth)
+    const [activeIndex, setActiveIndex] = useState(
+        currentSeasonData.seasonIndex
+    )
     const handleClick = (index) => setActiveIndex(index)
     const checkActive = (index, className) =>
         activeIndex !== index ? className : ''
 
+    const seasons = ['spring', 'summer', 'autumn', 'winter']
+
     return (
-        <>
+        <div className="container mx-auto">
             <div>
-                <button
-                    className={`${checkActive(1, 'opacity-25')}`}
-                    onClick={() => handleClick(1)}
-                >
-                    Spring
-                </button>
-
-                <button
-                    className={`${checkActive(2, 'opacity-25')}`}
-                    onClick={() => handleClick(2)}
-                >
-                    Summer
-                </button>
-
-                <button
-                    className={`${checkActive(3, 'opacity-25')}`}
-                    onClick={() => handleClick(3)}
-                >
-                    Autmun
-                </button>
-
-                <button
-                    className={`${checkActive(4, 'opacity-25')}`}
-                    onClick={() => handleClick(4)}
-                >
-                    Winter
-                </button>
+                {seasons.map((season, index) => {
+                    return (
+                        <button
+                            key={index}
+                            className={`${checkActive(
+                                index + 1,
+                                'opacity-25'
+                            )}`}
+                            onClick={() => handleClick(index + 1)}
+                        >
+                            {season}
+                        </button>
+                    )
+                })}
             </div>
-
             <div>
                 <div className={`${checkActive(1, 'hidden')}`}>
-                    <div>{allMonths[3].name}</div>
+                    <VegName allMonths={allMonths} index={2} />
                     <VegName allMonths={allMonths} index={3} />
-                    <div>{allMonths[4].name}</div>
                     <VegName allMonths={allMonths} index={4} />
                 </div>
-
                 <div className={`${checkActive(2, 'hidden')}`}>
-                    <div>{allMonths[5].name}</div>
                     <VegName allMonths={allMonths} index={5} />
-                    <div>{allMonths[6].name}</div>
                     <VegName allMonths={allMonths} index={6} />
-                    <div>{allMonths[7].name}</div>
                     <VegName allMonths={allMonths} index={7} />
                 </div>
-
                 <div className={`${checkActive(3, 'hidden')}`}>
-                    <div>{allMonths[8].name}</div>
                     <VegName allMonths={allMonths} index={8} />
-                    <div>{allMonths[9].name}</div>
                     <VegName allMonths={allMonths} index={9} />
-                    <div>{allMonths[10].name}</div>
                     <VegName allMonths={allMonths} index={10} />
                 </div>
-
                 <div className={`${checkActive(4, 'hidden')}`}>
-                    <div>{allMonths[11].name}</div>
                     <VegName allMonths={allMonths} index={11} />
-                    <div>{allMonths[0].name}</div>
                     <VegName allMonths={allMonths} index={0} />
-                    <div>{allMonths[1].name}</div>
                     <VegName allMonths={allMonths} index={1} />
                 </div>
             </div>
-        </>
+        </div>
     )
 }
+

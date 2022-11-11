@@ -16,7 +16,6 @@ export default function Home({ allMonths, allRecipes }) {
     const currentMonth = useContext(GlobalMonth)
     const currentMonthData = allMonths[currentMonth]
     // allMonths is an array of objects
-    console.log(allRecipes)
     return (
         <div className="bg-pink-200">
             <Head>
