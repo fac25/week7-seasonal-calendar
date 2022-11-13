@@ -33,7 +33,7 @@ export default function Home({ allMonths, allRecipes }) {
                         {' '}
                         Seasonal Calendar{' '}
                     </h1>
-                    <p>{currentMonthData.name}</p>
+                    {/* <p>{currentMonthData.name}</p> */}
                     {/* <Recipe props={allRecipes} /> */}
                     <VegName allMonths={allMonths} index={currentMonth} />
                 </div>
