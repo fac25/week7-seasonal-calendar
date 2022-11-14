@@ -16,7 +16,6 @@ export default function Home({ allMonths, allRecipes }) {
     const currentMonth = useContext(GlobalMonth)
     const currentMonthData = allMonths[currentMonth]
     // allMonths is an array of objects
-    console.log(allRecipes)
     return (
         <div className="bg-pink-200">
             <Head>
@@ -34,7 +33,7 @@ export default function Home({ allMonths, allRecipes }) {
                         {' '}
                         Seasonal Calendar{' '}
                     </h1>
-                    <p>{currentMonthData.name}</p>
+                    {/* <p>{currentMonthData.name}</p> */}
                     {/* <Recipe props={allRecipes} /> */}
                     <VegName allMonths={allMonths} index={currentMonth} />
                 </div>
