@@ -18,10 +18,6 @@ const nextConfig = {
             'images-na.ssl-images-amazon.com',
         ],
     },
-    i18n: {
-        locales: ['en'],
-        defaultLocale: 'en',
-    },
 }
 
 module.exports = nextConfig
