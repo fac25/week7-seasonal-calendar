@@ -71,7 +71,7 @@ export default function SingleVeg({
         <>
             <h2>Nutrition Facts</h2>
 
-            <div>{/* <SingleVeg /> */}</div>
+            <div> {/* <SingleVeg /> */}</div>
             <table>
                 <tbody>
                     {arr.map((el, index) => (
