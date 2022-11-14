@@ -5,13 +5,15 @@ import Recipe from '../../components/Recipe.js'
 
 const currentMonth = new Date().getMonth()
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const allVeg = await loadVeg()
     const currentMonthData = allVeg[currentMonth]
     const currentMonthVegArray = currentMonthData.food.map((veg) => veg.name)
 
     const currentMonthsRecipes = await loadRecipes(currentMonthVegArray)
 
+
+    // Pass data to the page via props
     return {
         props: { currentMonthsRecipes },
     }
