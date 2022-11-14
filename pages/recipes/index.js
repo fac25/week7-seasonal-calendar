@@ -6,19 +6,18 @@ import Recipe from '../../components/Recipe.js'
 const currentMonth = new Date().getMonth()
 
 export async function getStaticProps() {
-    const allveg = await loadVeg()
-    const currentMonthData = allveg[currentMonth]
-    const allVegArray = currentMonthData.food.map((veg) => veg.name)
+    const allVeg = await loadVeg()
+    const currentMonthData = allVeg[currentMonth]
+    const currentMonthVegArray = currentMonthData.food.map((veg) => veg.name)
 
-    const allrecipes = await loadRecipes(allVegArray)
+    const currentMonthsRecipes = await loadRecipes(currentMonthVegArray)
 
     return {
-        props: { allrecipes },
+        props: { currentMonthsRecipes },
     }
 }
 
-export default function Home({ allrecipes }) {
-
+export default function Home({ currentMonthsRecipes }) {
     return (
         <div className="bg-pink-200">
             <Head>
@@ -33,7 +32,7 @@ export default function Home({ allrecipes }) {
             <main>
                 <h1>Recipes Page</h1>
                 <div>
-                    {allrecipes.fetched.map((recipe) => (
+                    {currentMonthsRecipes.fetched.map((recipe) => (
                         <Recipe key={recipe.label} props={recipe} />
                     ))}
                 </div>
