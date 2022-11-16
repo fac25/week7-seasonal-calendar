@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function VegName({ allMonths, index }) {
+export default function VegNameGrid({ allMonths, index }) {
     return (
         <>
             <h2>{allMonths[index].name}</h2>

@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { loadVeg } from '../lib/loadVeg.js'
 import GlobalMonth from '../lib/GlobalMonth'
 import Recipe from '../components/Recipe.js'
-import VegName from '../components/VegName'
+import VegNameGrid from '../components/VegNameGrid'
 import { loadRecipes } from '../lib/loadRecipes.js'
 
 export async function getStaticProps() {
@@ -35,7 +35,7 @@ export default function Home({ allMonths, allRecipes }) {
                     </h1>
                     {/* <p>{currentMonthData.name}</p> */}
                     {/* <Recipe props={allRecipes} /> */}
-                    <VegName allMonths={allMonths} index={currentMonth} />
+                    <VegNameGrid allMonths={allMonths} index={currentMonth} />
                 </div>
             </main>
 
