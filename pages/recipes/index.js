@@ -33,7 +33,10 @@ export default function Home({ currentMonthsRecipes }) {
 
             <main>
                 <h1>Recipes Page</h1>
-                <div>
+                <form>
+                    
+                    </form>
+                <div> 
                     {currentMonthsRecipes.fetched.map((recipe) => (
                         <Recipe key={recipe.label} props={recipe} />
                     ))}

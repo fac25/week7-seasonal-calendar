@@ -65,7 +65,6 @@ export default function SingleVeg({
 
     return (
         <div className="container mx-auto">
-            <header>
                 <div className="flex flex-row py-6">
                     <div className=" h-24 w-24 md:w-40 md:h-40 lg:w-48 lg:h-48 2xl:w-64 2xl:h-64">
                         <Image
@@ -89,7 +88,6 @@ export default function SingleVeg({
                         </p>
                     </div>
                 </div>
-            </header>
             <section>
                 <h2 className="text-xl">Nutrition Facts</h2>
                 <table>
