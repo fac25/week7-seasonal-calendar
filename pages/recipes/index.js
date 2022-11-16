@@ -2,6 +2,17 @@ import Head from 'next/head'
 import { loadVeg } from '../../lib/loadVeg.js'
 import { loadRecipes } from '../../lib/loadRecipes.js'
 import Recipe from '../../components/Recipe.js'
+import React from 'react'
+import Select from 'react-select'
+
+const aquaticCreatures = [
+    { label: 'Shark', value: 'Shark' },
+    { label: 'Dolphin', value: 'Dolphin' },
+    { label: 'Whale', value: 'Whale' },
+    { label: 'Octopus', value: 'Octopus' },
+    { label: 'Crab', value: 'Crab' },
+    { label: 'Lobster', value: 'Lobster' },
+]
 
 const currentMonth = new Date().getMonth()
 
@@ -33,10 +44,8 @@ export default function Home({ currentMonthsRecipes }) {
 
             <main>
                 <h1>Recipes Page</h1>
-                <form>
-                    
-                    </form>
-                <div> 
+                <Select options={aquaticCreatures} />
+                <div>
                     {currentMonthsRecipes.fetched.map((recipe) => (
                         <Recipe key={recipe.label} props={recipe} />
                     ))}
