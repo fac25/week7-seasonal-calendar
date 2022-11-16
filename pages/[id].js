@@ -2,38 +2,12 @@
 import { loadVeg } from '../lib/loadVeg.js'
 import Nutrition from '../components/Nutrition.js'
 import { loadNutritionFacts } from '../lib/loadNutritionFacts.js'
-
-// export async function getStaticPaths() {
-//     const allveg = await loadVeg()
-//     const allYearArray = []
-//     for (const month of allveg) {
-//         allYearArray.push(month.food.map((veg) => veg.name))
-//     }
-//     const flatPath = allYearArray.flat()
-//     const path = flatPath.map((veg) => ({
-//         params: {
-//             id: String(veg).toLowerCase().replace(' ', '-'),
-//         },
-//     }))
-
-//     return {
-//         paths: path,
-//         fallback: false,
-//     }
-// }
+import { camalize } from '../lib/utils.js'
+import Image from 'next/image.js'
 
 export async function getServerSideProps({ params }) {
     const vegetables = await loadNutritionFacts({ params })
-
-    // const res = await fetch(
-    //     `https://api.edamam.com/api/nutrition-data?app_id=cd596177&app_key=%20d3aae1ee2f6f3ae55aebc8f0d4c2662c&nutrition-type=logging&ingr=${params.id}`
-    // )
-
-    // if (!res.ok) {
-    //     const message = `An error has occured: ${res.status}`
-    //     throw new Error(message)
-    // }
-    // const vegetables = await res.json()
+    const allMonths = await loadVeg()
     if (vegetables['ingredients'][0]['parsed'] === undefined) {
         return { notFound: true } //return 404 page
     } else {
@@ -42,16 +16,27 @@ export async function getServerSideProps({ params }) {
                 vegetables:
                     vegetables['ingredients'][0]['parsed'][0]['nutrients'],
                 params: params.id,
+                vegapi: allMonths,
             },
         }
     }
 }
 
-// loadRecipes().catch((error) => {
-//     error.message // 'An error has occurred: 404'
-// })
-
-export default function SingleVeg({ vegetables, params }) {
+export default function SingleVeg({ vegetables, params, vegapi }) {
+    // iterating through all the vegs in food array and return only if matches current Veg
+    // to render the image
+    const currentVeg = []
+    vegapi.map((month) => {
+        month.food.map((veg) => {
+            if (veg.name === camalize(params)) {
+                return currentVeg.push({
+                    name: veg.name,
+                    image: veg.imageUrlSmall,
+                })
+            }
+        })
+    })
+    // console.log(currentVeg)
     const arr = [
         vegetables.VITD,
         vegetables.ENERC_KCAL,
@@ -69,24 +54,50 @@ export default function SingleVeg({ vegetables, params }) {
     ]
 
     return (
-        <>
-            <h2>Nutrition Facts</h2>
-            <p>{params}</p>
-            <table>
-                <tbody>
-                    {arr.map((el, index) =>
-                        el !== undefined ? (
-                            <tr key={index}>
-                                <td>
-                                    <Nutrition nutrition={el} />
-                                </td>
-                            </tr>
-                        ) : (
-                            ''
-                        )
-                    )}
-                </tbody>
-            </table>
-        </>
+        <div className="container mx-auto">
+            <header>
+                <div className="flex flex-row py-6">
+                    <div className=" h-24 w-24 md:w-40 md:h-40 lg:w-48 lg:h-48 2xl:w-64 2xl:h-64">
+                        <Image
+                            src={currentVeg[0].image}
+                            width={300}
+                            height={300}
+                            alt={currentVeg[0].name}
+                            className="object-cover h-full w-full rounded-full"
+                        />
+                    </div>
+                    <div className="basis-3/4">
+                        <h1 className="text-2xl">~~ {camalize(params)}</h1>
+                        <p>
+                            Veggies es bonus vobis, proinde vos postulo essum
+                            magis kohlrabi welsh onion daikon amaranth tatsoi
+                            tomatillo melon azuki bean garlic. Gumbo bite greens
+                            corn soko endive gumbo gourd. Parsley shallot
+                            zucchini tatsoi pea sprouts fava bean collard greens
+                            dandelion okra wakame tomato. Dandelion cucumber
+                            earthnut pea peanut soko zucchini.
+                        </p>
+                    </div>
+                </div>
+            </header>
+            <section>
+                <h2 className="text-xl">Nutrition Facts</h2>
+                <table>
+                    <tbody>
+                        {arr.map((el, index) =>
+                            el !== undefined ? (
+                                <tr key={index}>
+                                    <td>
+                                        <Nutrition nutrition={el} />
+                                    </td>
+                                </tr>
+                            ) : (
+                                ''
+                            )
+                        )}
+                    </tbody>
+                </table>
+            </section>
+        </div>
     )
 }
