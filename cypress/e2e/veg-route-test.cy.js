@@ -1,10 +1,9 @@
 // write desci statment
-// describe('Single veg has a route with status 200', () => {
-//     it('Brusell sprouts has a route', () => {
-//         cy.visit('http://localhost:3000')
-//         cy.get("a[href*='brussel-sprouts']").click()
-
-//     })
+describe('Single veg has a route with status 200', () => {
+    //     it('Brusell sprouts has a route', () => {
+    //         cy.visit('http://localhost:3000')
+    //         cy.get("a[href*='brussel-sprouts']").click()
+})
 
 // })
 // use it stat to
