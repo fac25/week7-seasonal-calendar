@@ -2,17 +2,9 @@ import Head from 'next/head'
 import { loadVeg } from '../../lib/loadVeg.js'
 import { loadRecipes } from '../../lib/loadRecipes.js'
 import Recipe from '../../components/Recipe.js'
-import React from 'react'
+import { React, useState } from 'react'
 import Select from 'react-select'
-
-const aquaticCreatures = [
-    { label: 'Shark', value: 'Shark' },
-    { label: 'Dolphin', value: 'Dolphin' },
-    { label: 'Whale', value: 'Whale' },
-    { label: 'Octopus', value: 'Octopus' },
-    { label: 'Crab', value: 'Crab' },
-    { label: 'Lobster', value: 'Lobster' },
-]
+import Link from 'next/link'
 
 const currentMonth = new Date().getMonth()
 
@@ -20,17 +12,21 @@ export async function getStaticProps() {
     const allVeg = await loadVeg()
     const currentMonthData = allVeg[currentMonth]
     const currentMonthVegArray = currentMonthData.food.map((veg) => veg.name)
-
     const currentMonthsRecipes = await loadRecipes(currentMonthVegArray)
 
-    // Pass data to the page via props
+    const selectOptions = currentMonthVegArray.map((opt) => ({
+        label: opt,
+        value: opt,
+    }))
+
     return {
-        props: { currentMonthsRecipes },
+        props: { currentMonthsRecipes, selectOptions },
         revalidate: 604800, //seconds in week
     }
 }
 
-export default function Home({ currentMonthsRecipes }) {
+export default function Home({ currentMonthsRecipes, selectOptions }) {
+    const [userChoice, setUserChoice] = useState('')
     return (
         <div className="bg-pink-200">
             <Head>
@@ -42,17 +38,21 @@ export default function Home({ currentMonthsRecipes }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main>
-                <h1>Recipes Page</h1>
-                <Select options={aquaticCreatures} />
-                <div>
-                    {currentMonthsRecipes.fetched.map((recipe) => (
-                        <Recipe key={recipe.label} props={recipe} />
-                    ))}
-                </div>
-            </main>
-
-            <footer></footer>
+            <h1>Recipes Page</h1>
+            <Select
+                options={selectOptions}
+                onChange={(opt) => setUserChoice(opt.value)}
+            />
+            <Link
+                href={'/recipes/' + userChoice.toLowerCase().replace(' ', '-')}
+            >
+                SEARCH
+            </Link>
+            <div>
+                {currentMonthsRecipes.fetched.map((recipe) => (
+                    <Recipe key={recipe.label} props={recipe} />
+                ))}
+            </div>
         </div>
     )
 }
