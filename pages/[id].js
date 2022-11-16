@@ -4,10 +4,14 @@ import Nutrition from '../components/Nutrition.js'
 import { loadNutritionFacts } from '../lib/loadNutritionFacts.js'
 import { camalize } from '../lib/utils.js'
 import Image from 'next/image.js'
+import Recipe from '../components/Recipe.js'
+import { loadRecipes } from '../lib/loadRecipes.js'
 
 export async function getServerSideProps({ params }) {
     const vegetables = await loadNutritionFacts({ params })
     const allMonths = await loadVeg()
+    const currentMonthVegRecipeArray = [params.id]
+    const currentMonthsRecipes = await loadRecipes(currentMonthVegRecipeArray)
     if (vegetables['ingredients'][0]['parsed'] === undefined) {
         return { notFound: true } //return 404 page
     } else {
@@ -17,12 +21,18 @@ export async function getServerSideProps({ params }) {
                     vegetables['ingredients'][0]['parsed'][0]['nutrients'],
                 params: params.id,
                 vegapi: allMonths,
+                currentMonthsRecipes: currentMonthsRecipes,
             },
         }
     }
 }
 
-export default function SingleVeg({ vegetables, params, vegapi }) {
+export default function SingleVeg({
+    vegetables,
+    params,
+    vegapi,
+    currentMonthsRecipes,
+}) {
     // iterating through all the vegs in food array and return only if matches current Veg
     // to render the image
     const currentVeg = []
@@ -97,6 +107,10 @@ export default function SingleVeg({ vegetables, params, vegapi }) {
                         )}
                     </tbody>
                 </table>
+                <h2>Recipes</h2>
+                {currentMonthsRecipes.fetched.map((recipe) => (
+                    <Recipe key={recipe.label} props={recipe} />
+                ))}
             </section>
         </div>
     )
