@@ -1,8 +1,6 @@
-import React, { useContext, useState } from 'react'
-import GlobalMonth from '../lib/GlobalMonth'
+import React, { useState } from 'react'
 import { loadVeg } from '../lib/loadVeg.js'
 import VegNameGrid from '../components/VegNameGrid'
-
 import { currentMonth, currentSeason } from '../lib/currentData'
 //currentSeason is a function that take currentMonth as argument and return data = { season: 'autumn', seasonIndex: 3 }
 
@@ -26,17 +24,17 @@ export default function Calendar({ allMonths }) {
         <div className="container mx-auto">
             <div>
                 {seasons.map((season, index) => {
-                    return (
-                        <button
-                            key={index}
-                            className={`${checkActive(
-                                index + 1,
-                                'opacity-25'
-                            )}`}
-                            onClick={() => handleClick(index + 1)}
-                        >
-                            {season}
-                        </button>
+                    return (           
+                            <button
+                                key={index}
+                                className={`${checkActive(
+                                    index + 1,
+                                    'opacity-25'
+                                )}`}
+                                onClick={() => handleClick(index + 1)}
+                            >
+                                {season}
+                            </button>
                     )
                 })}
             </div>
