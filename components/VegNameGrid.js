@@ -15,7 +15,8 @@ export default function VegNameGrid({ allMonths, index }) {
                     >
                         <Link
                             href={
-                                '/' + veg.name.toLowerCase().replace(' ', '-')
+                                '/veggies/' +
+                                veg.name.toLowerCase().replace(' ', '-')
                             }
                         >
                             <div className="text-center">

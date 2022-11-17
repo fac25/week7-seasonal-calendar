@@ -33,22 +33,15 @@ export default function Home({ allMonths, currentMonthsRecipes }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main>
-                <div className="container mx-auto">
-                    {/* <h1 className="text-2xl text-blue-600">
-                        {' '}
-                        Seasonal Calendar{' '}
-                    </h1> */}
+            <div className="container mx-auto">
+                <h1 className="text-2xl text-blue-600">Seasonal Calendar</h1>
 
-                    <VegNameGrid allMonths={allMonths} index={currentMonth} />
-                    <h2>Recipes</h2>
-                    {currentMonthsRecipes.fetched.map((recipe) => (
-                        <Recipe key={recipe.label} props={recipe} />
-                    ))}
-                </div>
-            </main>
-
-            <footer></footer>
+                <VegNameGrid allMonths={allMonths} index={currentMonth} />
+                <h2>Recipes</h2>
+                {currentMonthsRecipes.fetched.map((recipe) => (
+                    <Recipe key={recipe.label} props={recipe} />
+                ))}
+            </div>
         </>
     )
 }
