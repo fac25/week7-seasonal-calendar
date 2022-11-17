@@ -123,10 +123,12 @@ export default function SingleVeg({
                         )}
                     </tbody>
                 </table>
-                <h2>Recipes</h2>
-                {currentMonthsRecipes.fetched.map((recipe) => (
-                    <Recipe key={recipe.label} props={recipe} />
-                ))}
+                <h2 className="ext-4xl my-12 text-center font-bold">Recipes</h2>
+                <div className="grid gap-6 grid-cols-1 md:grid-cols-2 max-w-6xl m-auto pb-12">
+                    {currentMonthsRecipes.fetched.map((recipe) => (
+                        <Recipe key={recipe.label} props={recipe} />
+                    ))}
+                </div>
             </section>
         </div>
     )
