@@ -16,6 +16,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allMonths, currentMonthsRecipes }) {
+
     return (
         <>
             <Head>
@@ -28,13 +29,20 @@ export default function Home({ allMonths, currentMonthsRecipes }) {
             </Head>
 
             <div className="container mx-auto">
-                <h1 className="text-2xl text-blue-600">Seasonal Calendar</h1>
+                <h1 className="text-4xl text-center mb-3">
+                    Veggies of the Month
+                </h1>
 
                 <VegNameGrid allMonths={allMonths} index={currentMonth} />
-                <h2>Recipes</h2>
-                {currentMonthsRecipes.fetched.map((recipe) => (
-                    <Recipe key={recipe.label} props={recipe} />
-                ))}
+
+                <h2 className="text-4xl my-12 text-center font-bold">
+                    ~~ Recipes ~~
+                </h2>
+                <div className="grid gap-6 grid-cols-1 md:grid-cols-2 max-w-6xl m-auto pb-12">
+                    {currentMonthsRecipes.fetched.map((recipe) => (
+                        <Recipe key={recipe.label} props={recipe} />
+                    ))}
+                </div>
             </div>
         </>
     )

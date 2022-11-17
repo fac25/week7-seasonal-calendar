@@ -28,7 +28,7 @@ export default function Home({ currentMonthsRecipes, selectOptions }) {
     const [userChoice, setUserChoice] = useState('')
     console.log(currentMonthsRecipes)
     return (
-        <div className="bg-pink-200">
+        <>
             <Head>
                 <title>Recipes</title>
                 <meta
@@ -51,8 +51,7 @@ export default function Home({ currentMonthsRecipes, selectOptions }) {
             >
                 SEARCH
             </Link>
-            <div>
-                {/* {fetched:[]} currentMonthsRecipes.hasOwnProperty('fetched')   ]}[]  // if feteched is objKey */}
+            <div className="grid gap-6 grid-cols-1 md:grid-cols-2 max-w-6xl m-auto">
                 {currentMonthsRecipes.hasOwnProperty('fetched') &&
                 currentMonthsRecipes.fetched.length !== 0
                     ? currentMonthsRecipes.fetched.map((recipe) => (
@@ -60,6 +59,6 @@ export default function Home({ currentMonthsRecipes, selectOptions }) {
                       ))
                     : 'We have exceeded our API calls. Please try again in a minute!'}
             </div>
-        </div>
+        </>
     )
 }

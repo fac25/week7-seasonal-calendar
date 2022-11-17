@@ -18,23 +18,24 @@ export default function Calendar({ allMonths }) {
     const checkActive = (index, className) =>
         activeIndex !== index ? className : ''
 
-    const seasons = ['spring', 'summer', 'autumn', 'winter']
+    const seasons = ['Spring', 'Summer', 'Autumn', 'Winter']
 
     return (
         <div className="container mx-auto">
-            <div>
+            <div className="flex justify-between max-w-lg mx-auto mb-8">
                 {seasons.map((season, index) => {
-                    return (           
-                            <button
-                                key={index}
-                                className={`${checkActive(
-                                    index + 1,
-                                    'opacity-25'
-                                )}`}
-                                onClick={() => handleClick(index + 1)}
-                            >
-                                {season}
-                            </button>
+
+                    return (
+                        <button
+                            key={index}
+                            className={` text-lg border-b-4 border-dotted hover:border-black transition hover:duration-500 ${checkActive(
+                                index + 1,
+                                'border-transparent opacity-75'
+                            )}`}
+                            onClick={() => handleClick(index + 1)}
+                        >
+                            {season}
+                        </button>
                     )
                 })}
             </div>
