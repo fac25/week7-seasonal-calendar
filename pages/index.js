@@ -1,7 +1,5 @@
-import { useContext } from 'react'
 import Head from 'next/head'
 import { loadVeg } from '../lib/loadVeg.js'
-import GlobalMonth from '../lib/GlobalMonth'
 import Recipe from '../components/Recipe.js'
 import VegNameGrid from '../components/VegNameGrid'
 import { loadRecipes } from '../lib/loadRecipes.js'
@@ -14,14 +12,11 @@ export async function getStaticProps() {
     const currentMonthVegArray = currentMonthData.food.map((veg) => veg.name)
     const currentMonthsRecipes = await loadRecipes(currentMonthVegArray)
 
-    return { props: { allMonths, currentMonthsRecipes }, revalidate: 604800 } //revalidate once every week
+    return { props: { allMonths, currentMonthsRecipes }, revalidate: 86400 } //revalidate once a day
 }
 
 export default function Home({ allMonths, currentMonthsRecipes }) {
-    const currentMonth = useContext(GlobalMonth)
-    // const currentMonthData = allMonths[currentMonth]
 
-    // allMonths is an array of objects
     return (
         <>
             <Head>
