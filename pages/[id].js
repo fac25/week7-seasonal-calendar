@@ -4,10 +4,14 @@ import Nutrition from '../components/Nutrition.js'
 import { loadNutritionFacts } from '../lib/loadNutritionFacts.js'
 import { camalize } from '../lib/utils.js'
 import Image from 'next/image.js'
+import Recipe from '../components/Recipe.js'
+import { loadRecipes } from '../lib/loadRecipes.js'
 
 export async function getServerSideProps({ params }) {
     const vegetables = await loadNutritionFacts({ params })
     const allMonths = await loadVeg()
+    const currentMonthVegRecipeArray = [params.id]
+    const currentMonthsRecipes = await loadRecipes(currentMonthVegRecipeArray)
     if (vegetables['ingredients'][0]['parsed'] === undefined) {
         return { notFound: true } //return 404 page
     } else {
@@ -17,12 +21,18 @@ export async function getServerSideProps({ params }) {
                     vegetables['ingredients'][0]['parsed'][0]['nutrients'],
                 params: params.id,
                 vegapi: allMonths,
+                currentMonthsRecipes: currentMonthsRecipes,
             },
         }
     }
 }
 
-export default function SingleVeg({ vegetables, params, vegapi }) {
+export default function SingleVeg({
+    vegetables,
+    params,
+    vegapi,
+    currentMonthsRecipes,
+}) {
     // iterating through all the vegs in food array and return only if matches current Veg
     // to render the image
     const currentVeg = []
@@ -55,7 +65,6 @@ export default function SingleVeg({ vegetables, params, vegapi }) {
 
     return (
         <div className="container mx-auto">
-            <header>
                 <div className="flex flex-row py-6">
                     <div className=" h-24 w-24 md:w-40 md:h-40 lg:w-48 lg:h-48 2xl:w-64 2xl:h-64">
                         <Image
@@ -79,7 +88,6 @@ export default function SingleVeg({ vegetables, params, vegapi }) {
                         </p>
                     </div>
                 </div>
-            </header>
             <section>
                 <h2 className="text-xl">Nutrition Facts</h2>
                 <table>
@@ -97,6 +105,10 @@ export default function SingleVeg({ vegetables, params, vegapi }) {
                         )}
                     </tbody>
                 </table>
+                <h2>Recipes</h2>
+                {currentMonthsRecipes.fetched.map((recipe) => (
+                    <Recipe key={recipe.label} props={recipe} />
+                ))}
             </section>
         </div>
     )
