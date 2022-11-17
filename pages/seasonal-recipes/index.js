@@ -38,7 +38,7 @@ export default function Home({ currentMonthsRecipes, selectOptions }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <h1>Recipes Page</h1>
+            <h2 className="text-2xl text-center font-bold">Recipes Page</h2>
             <Select
                 options={selectOptions}
                 onChange={(opt) => setUserChoice(opt.value)}

@@ -13,14 +13,14 @@ export async function getStaticProps() {
     const currentMonthData = allMonths[currentMonth]
     const currentMonthVegArray = currentMonthData.food.map((veg) => veg.name)
     const currentMonthsRecipes = await loadRecipes(currentMonthVegArray)
-    
+
     return { props: { allMonths, currentMonthsRecipes }, revalidate: 604800 } //revalidate once every week
 }
 
 export default function Home({ allMonths, currentMonthsRecipes }) {
     const currentMonth = useContext(GlobalMonth)
     const currentMonthData = allMonths[currentMonth]
-    
+
     // allMonths is an array of objects
     return (
         <>
@@ -33,14 +33,13 @@ export default function Home({ allMonths, currentMonthsRecipes }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-
             <main>
                 <div className="container mx-auto">
-                    <h1 className="text-2xl text-blue-600">
+                    {/* <h1 className="text-2xl text-blue-600">
                         {' '}
                         Seasonal Calendar{' '}
-                    </h1>
-                   
+                    </h1> */}
+
                     <VegNameGrid allMonths={allMonths} index={currentMonth} />
                     <h2>Recipes</h2>
                     {currentMonthsRecipes.fetched.map((recipe) => (
@@ -48,7 +47,6 @@ export default function Home({ allMonths, currentMonthsRecipes }) {
                     ))}
                 </div>
             </main>
-
 
             <footer></footer>
         </>
