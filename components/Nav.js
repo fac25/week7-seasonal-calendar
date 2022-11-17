@@ -19,7 +19,7 @@ export default function Nav() {
         {
             name: 'seasonal recipes',
             icon: MdFoodBank,
-            route: '/recipes',
+            route: '/seasonal-recipes',
         },
     ]
 

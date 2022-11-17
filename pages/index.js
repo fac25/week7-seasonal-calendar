@@ -34,7 +34,7 @@ export default function Home({ allMonths, currentMonthsRecipes }) {
             </Head>
 
             <div className="container mx-auto">
-                <h1 className="text-2xl text-blue-600"> Seasonal Calendar </h1>
+                <h1 className="text-2xl text-blue-600">Seasonal Calendar</h1>
 
                 <VegNameGrid allMonths={allMonths} index={currentMonth} />
                 <h2>Recipes</h2>
