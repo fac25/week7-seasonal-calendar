@@ -2,11 +2,11 @@ import Nav from './Nav'
 
 export default function Layout({ children }) {
     return (
-        <div className="flex flex-col bg-primary_green">
+        <div className="flex flex-col h-full bg-primary_green">
             <header className="mb-6">
                 <Nav />
             </header>
-            <main className="flex w-full flex-1 flex-col items-center p-6">
+            <main className="flex w-full h-full flex-1 flex-col p-6">
                 {children}
             </main>
             <footer className="flex h-24 w-full items-center justify-center border-t bg-gray-800 text-pale_yellow py-6">
