@@ -18,7 +18,6 @@ export async function getStaticProps() {
         label: opt,
         value: opt,
     }))
-
     return {
         props: { currentMonthsRecipes, selectOptions },
         revalidate: 604800, //seconds in week
@@ -27,6 +26,7 @@ export async function getStaticProps() {
 
 export default function Home({ currentMonthsRecipes, selectOptions }) {
     const [userChoice, setUserChoice] = useState('')
+    console.log(currentMonthsRecipes)
     return (
         <div className="bg-pink-200">
             <Head>
@@ -49,9 +49,13 @@ export default function Home({ currentMonthsRecipes, selectOptions }) {
                 SEARCH
             </Link>
             <div>
-                {currentMonthsRecipes.fetched.map((recipe) => (
-                    <Recipe key={recipe.label} props={recipe} />
-                ))}
+                {/* {fetched:[]} currentMonthsRecipes.hasOwnProperty('fetched')   ]}[]  // if feteched is objKey */}
+                {currentMonthsRecipes.hasOwnProperty('fetched') &&
+                currentMonthsRecipes.fetched.length !== 0
+                    ? currentMonthsRecipes.fetched.map((recipe) => (
+                          <Recipe key={recipe.label} props={recipe} />
+                      ))
+                    : 'We have exceeded our API calls. Please try again in a minute!'}
             </div>
         </div>
     )
