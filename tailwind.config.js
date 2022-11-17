@@ -9,6 +9,7 @@ module.exports = {
             colors: {
                 primary_green: {
                     DEFAULT: '#89B755',
+                    400: '#a1c676',
                 },
                 primary_yellow: {
                     DEFAULT: '#F4BD1A',

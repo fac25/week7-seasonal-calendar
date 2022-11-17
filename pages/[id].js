@@ -75,7 +75,7 @@ export default function SingleVeg({
                             className="object-cover h-full w-full rounded-full"
                         />
                     </div>
-                    <div className="basis-3/4">
+                    <div className="w-64">
                         <h1 className="text-2xl">~~ {camalize(params)}</h1>
                         <p>
                             Veggies es bonus vobis, proinde vos postulo essum

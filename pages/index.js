@@ -23,7 +23,7 @@ export default function Home({ allMonths, currentMonthsRecipes }) {
     
     // allMonths is an array of objects
     return (
-        <div className="bg-pink-200">
+        <>
             <Head>
                 <title>Seasonal Calendar</title>
                 <meta
@@ -32,6 +32,7 @@ export default function Home({ allMonths, currentMonthsRecipes }) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+
 
             <main>
                 <div className="container mx-auto">
@@ -48,7 +49,8 @@ export default function Home({ allMonths, currentMonthsRecipes }) {
                 </div>
             </main>
 
+
             <footer></footer>
-        </div>
+        </>
     )
 }
