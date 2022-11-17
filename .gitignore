@@ -12,6 +12,8 @@ package-lock
 /.next/
 /out/
 
+.env
+
 # production
 /build
 
