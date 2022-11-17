@@ -17,7 +17,7 @@ export default function Home({ allMonths, allRecipes }) {
     const currentMonthData = allMonths[currentMonth]
     // allMonths is an array of objects
     return (
-        <div className="bg-pink-200">
+        <>
             <Head>
                 <title>Seasonal Calendar</title>
                 <meta
@@ -27,19 +27,14 @@ export default function Home({ allMonths, allRecipes }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main>
-                <div className="container mx-auto">
-                    <h1 className="text-2xl text-blue-600">
-                        {' '}
-                        Seasonal Calendar{' '}
-                    </h1>
-                    {/* <p>{currentMonthData.name}</p> */}
-                    {/* <Recipe props={allRecipes} /> */}
-                    <VegNameGrid allMonths={allMonths} index={currentMonth} />
-                </div>
-            </main>
+            <div className="container mx-auto">
+                <h1 className="text-2xl text-center"> Seasonal Calendar </h1>
+                {/* <p>{currentMonthData.name}</p> */}
+                {/* <Recipe props={allRecipes} /> */}
+                <VegNameGrid allMonths={allMonths} index={currentMonth} />
+            </div>
 
             <footer></footer>
-        </div>
+        </>
     )
 }

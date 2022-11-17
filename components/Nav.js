@@ -1,22 +1,53 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
-
+import { MdHome, MdSearch, MdFoodBank } from 'react-icons/md'
+import { IoCalendarNumber } from 'react-icons/io5'
 export default function Nav() {
     const [navbar, setNavbar] = useState(false)
+    const navMenu = [
+        {
+            name: 'home',
+            icon: MdHome,
+            route: '/',
+        },
+        {
+            name: 'seasonal calendar',
+            icon: IoCalendarNumber,
+            route: '/calendar',
+        },
+        {
+            name: 'seasonal recepies',
+            icon: MdFoodBank,
+            route: '/recepies',
+        },
+    ]
 
     return (
-        <div>
-            <nav className="w-full bg-pink-800 shadow">
-                <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+        <>
+            <nav className=" bg-transparent shadow w-full">
+                <div className="justify-between px-4 mx-auto container md:items-center md:flex md:px-8">
                     <div>
                         <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                            <Link href="/">
-                                <p className="text-2xl text-white font-bold">
-                                    Logo
-                                </p>
+                            <Link
+                                href="/"
+                                passHref
+                                className="flex items-center"
+                            >
+                                <Image
+                                    src="/logo.svg"
+                                    height={60}
+                                    width={50}
+                                    alt="Seasonal Calendar Logo"
+                                    className="mr-3 h-6 sm:h-9"
+                                />
+                                <span className="self-center text-xl font-semibold whitespace-nowrap ">
+                                    Seasonal Calendar
+                                </span>
                             </Link>
                             <div className="md:hidden">
-                                <button aria-label="Menu Button"
+                                <button
+                                    aria-label="Menu Button"
                                     className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
                                     onClick={() => setNavbar(!navbar)}
                                 >
@@ -36,22 +67,24 @@ export default function Nav() {
                             }`}
                         >
                             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                                <li className="text-white">
-                                    <Link href="/">Home</Link>
-                                </li>
-                                <li className="text-white">
-                                    <Link href="/seasonal-calendar">
-                                        Seasonal Calendar
-                                    </Link>
-                                </li>
-                                <li className="text-white">
-                                    <Link href="/recipes">Recipes</Link>
-                                </li>
+                                {navMenu.map((menu) => (
+                                    <li key={menu.name}>
+                                        <Link
+                                            href={menu.route}
+                                            className="flex items-center border-b-4 border-transparent border-dotted hover:border-black transition hover:duration-500"
+                                        >
+                                            {
+                                                <menu.icon className="inline-block mr-1 h-5 w-5 md:hidden" />
+                                            }
+                                            <span>{menu.name}</span>
+                                        </Link>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>
                 </div>
             </nav>
-        </div>
+        </>
     )
 }
