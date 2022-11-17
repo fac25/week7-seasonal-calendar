@@ -14,12 +14,12 @@ export default function Nav() {
         {
             name: 'seasonal calendar',
             icon: IoCalendarNumber,
-            route: '/calendar',
+            route: '/seasonal-calendar',
         },
         {
-            name: 'seasonal recepies',
+            name: 'seasonal recipes',
             icon: MdFoodBank,
-            route: '/recepies',
+            route: '/recipes',
         },
     ]
 
