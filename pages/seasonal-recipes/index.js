@@ -44,7 +44,10 @@ export default function Home({ currentMonthsRecipes, selectOptions }) {
                 onChange={(opt) => setUserChoice(opt.value)}
             />
             <Link
-                href={'/recipes/' + userChoice.toLowerCase().replace(' ', '-')}
+                href={
+                    '/seasonal-recipes/' +
+                    userChoice.toLowerCase().replace(' ', '-')
+                }
             >
                 SEARCH
             </Link>
