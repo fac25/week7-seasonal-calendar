@@ -31,9 +31,9 @@ export async function getServerSideProps({ params }) {
 export default function RecipeSearch({ params, currentMonthsRecipes }) {
     return (
         <div className="container mx-auto">
-            <h1>{params}</h1>
+            <h1 className="text-4xl font-bold">{params}</h1>
 
-            <div>
+            <div className="grid gap-6 grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto my-12">
                 {currentMonthsRecipes.fetched.map((recipe) => (
                     <Recipe key={recipe.label} props={recipe} />
                 ))}

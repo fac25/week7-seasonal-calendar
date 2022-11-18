@@ -2,7 +2,7 @@ import Nav from './Nav'
 
 export default function Layout({ children }) {
     return (
-        <div className="flex flex-col h-full bg-primary_green">
+        <div className="flex flex-col min-h-screen bg-primary_green">
             <header className="mb-6">
                 <Nav />
             </header>

@@ -24,7 +24,6 @@ export default function Calendar({ allMonths }) {
         <div className="container mx-auto">
             <div className="flex justify-between max-w-lg mx-auto mb-8">
                 {seasons.map((season, index) => {
-
                     return (
                         <button
                             key={index}

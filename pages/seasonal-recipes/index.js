@@ -37,27 +37,33 @@ export default function Home({ currentMonthsRecipes, selectOptions }) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
-            <h2 className="text-2xl text-center font-bold">Recipes Page</h2>
-            <Select
-                options={selectOptions}
-                onChange={(opt) => setUserChoice(opt.value)}
-            />
-            <Link
-                href={
-                    '/seasonal-recipes/' +
-                    userChoice.toLowerCase().replace(' ', '-')
-                }
-            >
-                SEARCH
-            </Link>
-            <div className="grid gap-6 grid-cols-1 md:grid-cols-2 max-w-6xl m-auto">
-                {currentMonthsRecipes.hasOwnProperty('fetched') &&
-                currentMonthsRecipes.fetched.length !== 0
-                    ? currentMonthsRecipes.fetched.map((recipe) => (
-                          <Recipe key={recipe.label} props={recipe} />
-                      ))
-                    : 'We have exceeded our API calls. Please try again in a minute!'}
+            <div className="container mx-auto">
+                <h2 className="text-2xl text-center font-bold">
+                    This Month Recipes
+                </h2>
+                <div className="w-56 md:w-96 my-6 m-auto">
+                    <Select
+                        options={selectOptions}
+                        onChange={(opt) => setUserChoice(opt.value)}
+                    />
+                    <Link
+                        href={
+                            '/seasonal-recipes/' +
+                            userChoice.toLowerCase().replace(' ', '-')
+                        }
+                        className="px-4 py-2 my-3 inline-block font-semibold text-sm bg-black text-pale_yellow rounded-md shadow-sm hover:bg-pale_yellow hover:text-black duration-300"
+                    >
+                        SEARCH
+                    </Link>
+                </div>
+                <div className="grid gap-6 grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto my-12">
+                    {currentMonthsRecipes.hasOwnProperty('fetched') &&
+                    currentMonthsRecipes.fetched.length !== 0
+                        ? currentMonthsRecipes.fetched.map((recipe) => (
+                              <Recipe key={recipe.label} props={recipe} />
+                          ))
+                        : 'We have exceeded our API calls. Please try again in a minute!'}
+                </div>
             </div>
         </>
     )

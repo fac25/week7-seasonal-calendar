@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { BiLinkExternal } from 'react-icons/bi'
 
 export default function Recipe({ props }) {
     return (
@@ -17,11 +18,14 @@ export default function Recipe({ props }) {
                 <h3 className="text-xl mb-3">{props.label}</h3>
 
                 <Link
-                    className="border-b-0 border-transparent border-dotted hover:border-b-4 hover:border-black transition hover:duration-500"
+                    className="inline-flex items-center border-b-0 border-transparent border-dotted hover:border-b-4 hover:border-black transition hover:duration-500"
                     href={props.url}
                     passHref
                 >
-                    read full recipe
+                    <span className="mr-2">read full recipe</span>
+                    <span>
+                        <BiLinkExternal />
+                    </span>
                 </Link>
             </div>
         </div>
