@@ -8,7 +8,7 @@ export default function VegNameGrid({ allMonths, index }) {
                 ~~ {allMonths[index].name} ~~
             </h2>
             <div className="grid gap-3 grid-cols-3 lg:grid-cols-4 py-12">
-                {allMonths[index].food.slice(4).map((veg) => (
+                {allMonths[index].food.map((veg) => (
                     <div
                         key={veg.name}
                         className="flex flex-col justify-center items-center p-4 hover:bg-primary_green-400 transition hover:duration-300 rounded"
