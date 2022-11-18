@@ -54,7 +54,7 @@ We used the Javascript end-to-end testing framework, Cypress. To run the tests;
 
 The user will be able to view vegetables and fruits that are in season in the UK. The user will have access to a seasonal calendar which will display the fruits and vegetables in season for the current month.
 
-The user will be able to access recipes based on those fruites and vegetables and learn aboyt the nutritional benefits
+The user will be able to access recipes based on those fruites and vegetables and learn about the nutritional benefits
 
 You can find our site hosted on [Vercel](https://week7-seasonal-calendar-umber.vercel.app/) here.
 
@@ -62,7 +62,7 @@ You can find our site hosted on [Vercel](https://week7-seasonal-calendar-umber.v
 
 Seasonal produce generally requires fewer chemicals and the food miles are often significantly lower as product is grown more locally. This keeps the environmental impact, as well as the cost lower.
 
-The other websites showing a seasonal calendar don't have displays the data in an engaging way.
+Other websites showing a seasonal calendar don't display the data in an engaging way.
 
 ## Project scope
 
@@ -157,7 +157,7 @@ If we complete our stretch goal(s), we have to consider GDPR.
 
 #### **Was the project a success?**
 
--   We created the basic MVP
+-   We planned to create a MVP, and successful built and deployed it. We intended to work on the strech goals if we had time. 
 
 ### Software Development Lifecycle stages
 
