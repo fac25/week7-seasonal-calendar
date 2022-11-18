@@ -29,6 +29,18 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 3. QA - Abby
 4. DevOps - Lisa
 
+
+## Sprint Velocity 
+
+- Estimated: 56  
+- Number of Stories: 14
+- Estimated Velocity: 3.3
+
+- Actual Value 90 
+- Actual Velocity: 6.5
+
+(Took approximately twice as long as expected )
+
 ## Introduction
 
 The user will be able to view vegetables and fruits that are in season in the UK. The user will have access to a seasonal calendar which will display the fruits and vegetables in season for the current month.
