@@ -22,6 +22,15 @@
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## Testing 
+
+We used the Javascript end-to-end testing framework, Cypress. To run the tests; 
+
+1. `npm run build`
+2. `npm run start`
+3. `npm run cypress`
+
+
 ## Roles
 
 1. UX Lead - Paz
